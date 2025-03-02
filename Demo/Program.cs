@@ -54,18 +54,18 @@ namespace Demo
 
             #endregion
             #region insert Data with Relations
-            //var Dept1 = new Department() { Name="HR"};
+            //var Dept1 = new Department() { Name = "HR" };
             //var Dept2 = new Department() { Name = "IT" };
             //var Dept3 = new Department() { Name = "Development" };
 
 
-            //var Emp1 = new Employee() 
+            //var Emp1 = new Employee()
             //{
 
             //    Name = "Ahmed",
             //    Adress = "Alex",
             //    Email = "Eidm11"
-             
+
 
             //};
             //var Emp2 = new Employee()
@@ -86,7 +86,7 @@ namespace Demo
 
 
             //};
-           
+
 
             //Dept1.Employees.Add(Emp1);
             //dbcontext.Departments.Add(Dept1);
@@ -97,6 +97,44 @@ namespace Demo
 
 
 
+            #endregion
+            #region loading Related Data
+
+
+            //var employee= dbcontext.Employees.FirstOrDefault(e=>e.EmployeeId==1);
+
+            //if(employee is not null)
+            //{
+            //    Console.WriteLine($"Employee Name : {employee.Name}\nDepartment Name :{employee.Department?.Name?? "NA"} ");
+            //}
+            //Ef does not load any related Data by default
+            // to load related date use one of the following
+            // 1. Explicit loding
+            //load date in one Request
+            // load related data in one more request
+
+
+            //dbcontext.Entry(employee).Reference(e=> e.Department).Load();
+
+            //2. Eager loding
+            //var employee = dbcontext.Employees.Include(e=>e.Department).FirstOrDefault(e => e.EmployeeId == 1);
+            //if (employee is not null)
+            //{
+            //    Console.WriteLine($"Employee Name : {employee.Name}\nDepartment Name :{employee.Department?.Name ?? "NA"} ");
+
+            //}
+
+
+            //3. lazy loding
+            //all class must be public 
+            // all navigation property must be virtul
+
+
+
+            #endregion
+            #region mapping view
+            /*A Mapping View in C# refers to the concept of creating a logical or structural mapping between different data representations. It allows you to transform or relate data from one form to another, often used in databases, 
+             * object mapping, and memory management.*/
             #endregion
         }
     }
